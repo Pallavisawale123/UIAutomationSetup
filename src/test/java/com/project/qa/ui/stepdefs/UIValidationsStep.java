@@ -33,4 +33,9 @@ public class UIValidationsStep {
         driver.get(baseURL);
         AssertHelper.assertTrue(driver.getTitle() != null, "URL Launch" + driver.getTitle());
     }
+
+    @Given("close the launch url")
+    public void closeTheLaunchUrl() {
+        driver.close();
+    }
 }

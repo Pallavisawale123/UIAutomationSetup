@@ -1,8 +1,11 @@
 @ui
 Feature: Validate DemoQA UI
 
-  Scenario: get base URL
+  Scenario: open base URL
     Given get the launch url
+
+  Scenario: close base URL
+    Given close the launch url
 
 
 
