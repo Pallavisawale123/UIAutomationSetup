@@ -30,7 +30,7 @@ import java.util.HashMap;
 @Component
 @Slf4j
 public class UIDriverManager {
-    private WebDriver driver;
+    private static WebDriver driver;
     ConfigReader configReader = new ConfigReader();
     private DriverType driverType = DriverType.valueOf(configReader.getProperty("ui.driver.type"));
 
@@ -46,6 +46,9 @@ public class UIDriverManager {
 
     EventListener eventListener = new EventListener();
 
+//    public UIDriverManager(){
+//
+//    }
     /**
      * Method to get web driver instance
      *
@@ -75,7 +78,7 @@ public class UIDriverManager {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--diable--notifications");
                 chromeOptions.addArguments("force-device-scale-factor=0.80");
-                String downloadDir = "C:\\Installations\\temp\\pro-automation\\target";
+                String downloadDir = "C:\\Installations";
                 HashMap prefs = new HashMap<String, Object>();
                 prefs.put("download.default_directory", downloadDir); // Bypass default download directory in Chrome
                 prefs.put("safebrowsing.enabled", "false");
@@ -110,6 +113,8 @@ public class UIDriverManager {
 
         switch (driverType) {
             case CHROME:
+//                WebDriverManager.chromedriver().clearDriverCache().setup();
+//                WebDriverManager.chromedriver().clearResolutionCache().setup();
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--diable--notifications");

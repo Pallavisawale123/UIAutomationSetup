@@ -27,9 +27,9 @@ public class Hooks {
         driver = driverManager.getDriver();
     }
 
-    public static WebDriver getDriver() {
-        return driver;
-    }
+//    public static WebDriver getDriver() {
+//        return driver;
+//    }
 
     @After
     public void AfterScenario(Scenario scenario) throws IOException {
